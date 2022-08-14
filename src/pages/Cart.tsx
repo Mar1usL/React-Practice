@@ -12,6 +12,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
+import IconButton from "@mui/material/IconButton";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+
 import { CartItem } from "../models/CartItem";
 
 const Cart = () => {
@@ -51,28 +55,23 @@ const Cart = () => {
                     {(cartItem.price * cartItem.quantity).toFixed(2)}
                   </TableCell>
                   <TableCell>
-                    (
-                    <span
-                      className="btn-remove"
+                    <IconButton
                       onClick={() => context.handleDecreaseQuantity(cartItem)}
                     >
-                      -
-                    </span>
-                    )
-                    <b
-                      className="btn-remove"
+                      <RemoveIcon />
+                    </IconButton>
+                    <Typography
+                      variant="button"
+                      sx={{ cursor: "pointer" }}
                       onClick={() => context.handleRemoveFromCart(cartItem)}
                     >
                       Remove
-                    </b>
-                    (
-                    <span
-                      className="btn-add"
+                    </Typography>
+                    <IconButton
                       onClick={() => context.handleIncreaseQuantity(cartItem)}
                     >
-                      +
-                    </span>
-                    )
+                      <AddIcon />
+                    </IconButton>
                   </TableCell>
                 </TableRow>
               ))}

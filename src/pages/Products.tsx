@@ -9,6 +9,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
+import IconButton from "@mui/material/IconButton";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
@@ -62,7 +66,7 @@ const Products = () => {
                   Price
                   {byPriceAsc ? (
                     <KeyboardArrowUpIcon
-                      className="table__sort-asc"
+                      className="btn-sort"
                       onClick={() => {
                         context.sortCartItems("price", Order.Asc);
                         setByPriceAsc(false);
@@ -70,7 +74,7 @@ const Products = () => {
                     />
                   ) : (
                     <KeyboardArrowDownIcon
-                      className="table__sort-desc"
+                      className="btn-sort"
                       onClick={() => {
                         context.sortCartItems("price", Order.Desc);
                         setByPriceAsc(true);
@@ -90,21 +94,17 @@ const Products = () => {
                   <TableCell>{product.name}</TableCell>
                   <TableCell>{product.price}</TableCell>
                   <TableCell>
-                    (
-                    <span
-                      className="btn-remove"
+                    <IconButton
                       onClick={() => context.handleDecreaseQuantity(product)}
                     >
-                      -
-                    </span>
-                    ) Select (
-                    <span
-                      className="btn-add"
+                      <RemoveIcon />
+                    </IconButton>
+                    <Typography variant="button">Select</Typography>
+                    <IconButton
                       onClick={() => context.handleAddToCart(product)}
                     >
-                      +
-                    </span>
-                    )
+                      <AddIcon />
+                    </IconButton>
                   </TableCell>
                 </TableRow>
               ))}
