@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "name": "Broccoli",
+      "price": 0.25
+    }, 
+    {
+        "name": "Bread",
+        "price": 0.2
+    }
+  ]
+}
